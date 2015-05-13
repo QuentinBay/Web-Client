@@ -12,6 +12,8 @@
         <title>Confirmation Envoie Mail</title>
     </head>
     <body>
-        <h1>C'est envoyé !</h1>
+        <p>Pensez à vérifier dans votre boîte mail la confirmation de votre inscrition !</p>
+        <br/>
+        <a href="http://localhost:8080/RoutardWeb/CompositionVoyage.jsp"> <input type="button" value="S'inscrire" class="sansLabel"/></a>
     </body>
 </html>

@@ -30,7 +30,7 @@
                 <br />
                 <br />
                 <input type="submit" value="Se connecter" class="sansLabel" />
-                <a href="http://localhost:8080/RoutardWeb/InscriptionClient.jsp"> <input type="button" value="S'inscrire" class="sansLabel"  /></a>
+                <a href="http://localhost:8080/RoutardWeb/InscriptionClient.jsp"> <button type="button" value="OK" class="sansLabel"/></a>
                 <br />
             </fieldset>
         </form>
