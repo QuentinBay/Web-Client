@@ -28,7 +28,7 @@ public class ClientDAO extends DAO<Client> {
 
    public Client find(int id) {
         
-       return null;
+        return JpaUtil.obtenirEntityManager().find(Client.class, id);
    }
    
    public List<Client> listerClient () {

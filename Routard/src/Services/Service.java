@@ -153,4 +153,14 @@ public class Service extends JpaUtil {
         JpaUtil.fermerEntityManager();
         return resultat;
     }
+    
+    public Client findClientById(int id){
+        JpaUtil.creerEntityManager();
+        ClientDAO dClient = new ClientDAO();
+        Client resultat = dClient.find(id);
+        JpaUtil.fermerEntityManager();
+        return resultat;
+    }
 }
+
+

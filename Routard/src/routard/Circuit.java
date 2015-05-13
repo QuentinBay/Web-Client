@@ -47,6 +47,8 @@ public class Circuit extends Voyage{
         s = this.getDtype() + " (" + this.getDuree() + " jours, " + this.getKilometrage() + " kms, " + this.getTransport() + ")";
         return s;
     }
+    
+    
 }
 
 

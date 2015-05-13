@@ -7,16 +7,16 @@ import routard.Conseiller;
 import routard.Depart;
 import routard.Voyage;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-05-07T11:47:01")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-05-13T09:31:20")
 @StaticMetamodel(Devis.class)
 public class Devis_ { 
 
+    public static volatile SingularAttribute<Devis, String> date;
     public static volatile SingularAttribute<Devis, Integer> id;
-    public static volatile SingularAttribute<Devis, Depart> departDuDevis;
+    public static volatile SingularAttribute<Devis, Voyage> voyageDuDevis;
+    public static volatile SingularAttribute<Devis, Integer> nbPersonnes;
     public static volatile SingularAttribute<Devis, Integer> prixTotal;
     public static volatile SingularAttribute<Devis, Conseiller> conseillerDuDevis;
-    public static volatile SingularAttribute<Devis, Voyage> voyageDuDevis;
-    public static volatile SingularAttribute<Devis, String> date;
-    public static volatile SingularAttribute<Devis, Integer> nbPersonnes;
+    public static volatile SingularAttribute<Devis, Depart> departDuDevis;
 
 }

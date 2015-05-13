@@ -5,7 +5,9 @@
  */
 package Actions;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import routard.Client;
 
 /**
  *
@@ -15,6 +17,29 @@ public class CreerClient extends Action {
     @Override
     public void execute(HttpServletRequest request)
     {
-        String nom
+        //Recuperons les informations necessaires a la creation du client
+        String civilite = request.getParameter("civilite");
+        String nom = request.getParameter("nom");
+        String prenom = request.getParameter("prenom");
+        String adPostale = request.getParameter("adPostale");
+        String adMail = request.getParameter("adMail");
+        String numero = request.getParameter("numero");
+        
+        //Appelons le service de creation du client
+        service.enregistrerClient(civilite, nom, prenom, adPostale, adMail, numero);
+        
+        //Indiquons que le client a ete inscrit
+        //Recuperons l'id du client cree
+        List<Client> listeC = service.listerLesClient();
+        int idClient = listeC.get(listeC.size()-1).getId();
+        
+        String inscription = "Expediteur : ifroutard@monde.com\n"
+                           + "Pour : "+adMail+"\n"
+                           + "Sujet : Bienvenue\n\n"
+                           + "Corps :\n"
+                           + "Bonjour "+prenom+"\n"
+                           + "Nous vous confirmons votre inscription à l'agence IF'Routard. "
+                           + "Votre numéro de client est : "+idClient;
+        request.setAttribute("inscription", inscription);
     }
 }
