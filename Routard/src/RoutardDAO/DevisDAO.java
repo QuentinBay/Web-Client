@@ -20,8 +20,7 @@ public class DevisDAO extends DAO<Devis> {
     }
 
    public Devis find(int id) {
-        
-       return null;
+        return JpaUtil.obtenirEntityManager().find(Devis.class, id);
    }
     
 }

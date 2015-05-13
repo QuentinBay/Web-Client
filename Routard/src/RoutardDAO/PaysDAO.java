@@ -21,8 +21,7 @@ public class PaysDAO extends DAO<Pays> {
     }
 
    public Pays find(int id) {
-        
-       return null;
+        return JpaUtil.obtenirEntityManager().find(Pays.class, id);
    }
    
     public List<Pays> listerPays () {

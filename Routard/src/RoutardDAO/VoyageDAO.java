@@ -21,8 +21,7 @@ public class VoyageDAO extends DAO<Voyage> {
     }
 
    public Voyage find(int id) {
-        
-       return null;
+        return JpaUtil.obtenirEntityManager().find(Voyage.class, id);
    }
    
    public List<Voyage> listerVoyage () {

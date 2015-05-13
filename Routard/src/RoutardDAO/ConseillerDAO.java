@@ -32,7 +32,7 @@ import routard.Conseiller;
     }
     
     public Conseiller find(int id) {
-        return null;
+        return JpaUtil.obtenirEntityManager().find(Conseiller.class, id);
     }
     
     public Conseiller trouverConseillerMoinsDeClients() {

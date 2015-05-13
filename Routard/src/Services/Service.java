@@ -161,6 +161,46 @@ public class Service extends JpaUtil {
         JpaUtil.fermerEntityManager();
         return resultat;
     }
+    
+    public Conseiller findConseillerById(int id){
+        JpaUtil.creerEntityManager();
+        ConseillerDAO dConseiller = new ConseillerDAO();
+        Conseiller resultat = dConseiller.find(id);
+        JpaUtil.fermerEntityManager();
+        return resultat;
+    }
+    
+    public Depart findDepartById(int id){
+        JpaUtil.creerEntityManager();
+        DepartDAO dDepart = new DepartDAO();
+        Depart resultat = dDepart.find(id);
+        JpaUtil.fermerEntityManager();
+        return resultat;
+    }
+    
+    public Devis findDevistById(int id){
+        JpaUtil.creerEntityManager();
+        DevisDAO dDevis = new DevisDAO();
+        Devis resultat = dDevis.find(id);
+        JpaUtil.fermerEntityManager();
+        return resultat;
+    }
+    
+    public Pays findPaysById(int id){
+        JpaUtil.creerEntityManager();
+        PaysDAO dPays = new PaysDAO();
+        Pays resultat = dPays.find(id);
+        JpaUtil.fermerEntityManager();
+        return resultat;
+    }
+    
+    public Voyage findVoyagetById(int id){
+        JpaUtil.creerEntityManager();
+        VoyageDAO dVoyage = new VoyageDAO();
+        Voyage resultat = dVoyage.find(id);
+        JpaUtil.fermerEntityManager();
+        return resultat;
+    }
 }
 
 

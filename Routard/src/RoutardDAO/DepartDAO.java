@@ -22,7 +22,7 @@ public class DepartDAO extends DAO<Depart> {
 
     @Override
     public Depart find(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return JpaUtil.obtenirEntityManager().find(Depart.class, id);
     }
     
     public List<Depart> listerDepart () {
