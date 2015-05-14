@@ -13,10 +13,10 @@
     </head>
     <body>
         
-        <form method="post" action="/ActionServlet?todo=identifierClient">
+        <form method="post" action="/RoutardWeb/DetailsOffres.jsp">
             <fieldset>
                 <!-- bouton de deconnexion -->
-                <a href="http://localhost:8080/RoutardWeb/index.jsp"> 
+                <a href="/RoutardWeb/index.jsp"> 
                     <span style="position: absolute; right: 50px">
                         <input type="button" value="Deconnexion" class="sansLabel"/>
                     </span>
