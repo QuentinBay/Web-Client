@@ -21,12 +21,15 @@ public class CreerClient extends Action {
         String civilite = request.getParameter("civilite");
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
-        String adPostale = request.getParameter("adPostale");
-        String adMail = request.getParameter("adMail");
+        String adresse = request.getParameter("adresse");
+        String codePostal = request.getParameter("codePostal");
+        String ville = request.getParameter("ville");
+        String pays = request.getParameter("pays");
+        String email = request.getParameter("email");
         String numero = request.getParameter("numero");
         
         //Appelons le service de creation du client
-        service.enregistrerClient(civilite, nom, prenom, adPostale, adMail, numero);
+        service.enregistrerClient(civilite, nom, prenom, adresse+codePostal+ville+pays, email, numero);
         
         //Indiquons que le client a ete inscrit
         //Recuperons l'id du client cree
@@ -34,7 +37,7 @@ public class CreerClient extends Action {
         int idClient = listeC.get(listeC.size()-1).getId();
         
         String inscription = "Expediteur : ifroutard@monde.com\n"
-                           + "Pour : "+adMail+"\n"
+                           + "Pour : "+email+"\n"
                            + "Sujet : Bienvenue\n\n"
                            + "Corps :\n"
                            + "Bonjour "+prenom+"\n"
