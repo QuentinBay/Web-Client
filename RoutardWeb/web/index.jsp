@@ -13,7 +13,7 @@
     </head>
     <body>
        
-        <form method="post" action="/RoutardWeb/CompositionVoyage.jsp">
+        <form method="post" action="ActionServlet?todo=composerVoyage">
             <fieldset>
                 <br />
                 <label for="login">Login :</label>

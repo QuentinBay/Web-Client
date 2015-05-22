@@ -15,7 +15,7 @@
     </head>
     <body>
         
-        <form method="post" action="/RoutardWeb/DetailsOffres.jsp">
+        <form method="post" action="ActionServlet?todo=detaillerOffres">
             <fieldset>
                 <!-- bouton de deconnexion -->
                 <a href="/RoutardWeb/index.jsp"> 
@@ -37,6 +37,7 @@
                 %>
                 
                 <SELECT name="destination" size="1">
+                    <OPTION>Toutes les destinations
                     <c:forEach var="pays" items="${listePays}">
                         <OPTION> ${pays.getNom()}
                     </c:forEach>
@@ -45,11 +46,14 @@
                 </span>
                 <br />
                 <br />
-                <label for="typeVoyage"><span style="margin-left: 100px;">Type voyage:</span></label>
-                <input type="checkbox" name="sejour" value="" class="sansLabel">Sejour
+                <p>OU</p>
+                <br />
+                <br />
+                <label><span style="margin-left: 100px;">Type voyage:</span></label>
+                <input type="radio" name="typeVoyage" value="sejour" class="sansLabel">Sejour
                 <br/>
                 <span style="margin-left: 210px;">
-                    <input type="checkbox" name="circuit" value="" class="sansLabel"/>Circuit
+                    <input type="radio" name="typeVoyage" value="circuit" class="sansLabel"/>Circuit
                 </span>
                 <br />
                 <br />

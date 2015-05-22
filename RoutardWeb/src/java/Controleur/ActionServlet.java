@@ -61,6 +61,12 @@ public class ActionServlet extends HttpServlet
             case "composerVoyage" :
             {
                 action = new ComposerVoyage();
+                break;
+            }
+            case "detaillerOffres" :
+            {
+                action = new DetaillerOffres();
+                break;
             }
         }
         return action;
@@ -79,6 +85,11 @@ public class ActionServlet extends HttpServlet
             case "composerVoyage" :
             {
                 vue = "CompositionVoyage.jsp";
+                break;
+            }
+            case "detaillerOffres" :
+            {
+                vue = "DetailsOffres.jsp";
                 break;
             }
         }
