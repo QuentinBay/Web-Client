@@ -7,6 +7,7 @@ package Controleur;
  */
 
 import Actions.*;
+import RoutardDAO.JpaUtil;
 import Services.Service;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -169,5 +170,19 @@ public class ActionServlet extends HttpServlet
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    @Override
+    public void init() throws ServletException {
+        super.init(); //To change body of generated methods, choose Tools | Templates.
+        JpaUtil.init();
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy(); //To change body of generated methods, choose Tools | Templates.
+        JpaUtil.destroy();
+    }
+
+
 
 }

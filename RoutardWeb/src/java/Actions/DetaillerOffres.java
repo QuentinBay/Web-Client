@@ -20,10 +20,26 @@ public class DetaillerOffres extends Action {
         //Recuperons les informations necessaires a la creation du client
         String destination = request.getParameter("destination");
         List<Voyage> listeVoyage=null;
+        
         if (destination.equals("Toutes les destinations"))
             //On va trouver les offres en fonction du Type !
         {
             String typeVoyage = request.getParameter("typeVoyage");
+            if (typeVoyage!=null && typeVoyage.equals("sejour"))
+                //On va selectionner tous les sejours
+            {
+                listeVoyage = service.listerLesSejours();
+            }
+            else if (typeVoyage!=null && typeVoyage.equals("circuit"))
+                //On va selectionner tous les circuits
+            {
+                listeVoyage = service.listerLesCircuits();
+            }
+            else
+                //Rien n'a ete selectionne : on affiche tout !
+            {
+                listeVoyage = service.listerLesVoyage();
+            }
         }
         else
             //On va trouver les offres en fonction du pays
@@ -33,9 +49,6 @@ public class DetaillerOffres extends Action {
             listeVoyage =service.listerLesVoyagePays(p);
         }
         
-        
-        //System.out.println(destination+" | "+typeVoyage);
         request.setAttribute("voyages", listeVoyage);
-        //request.setAttribute("type", typeVoyage);
     }
 }

@@ -24,20 +24,25 @@
         <br/>
         <br/>
         <span style="font-weight:bold;">Voici nos offres :</span>
+        <br/>
+        <br/>
         
-        <br/>
-        <br/>
         <%
+            //On recupere les donnees de l'action
             List<Voyage> voyages = (List<Voyage>)request.getAttribute("voyages");
-            //String type = (String)request.getAttribute("type");
         %>
-        <c:forEach var="voyage" items="${voyages}">
-            <li> ${voyage.getNom()} </li>
-            <li> ${voyage.getDtype()} ( ${voyage.getDuree()} jours ) </li>
-            <li> ${voyage.getDescription()} </li>
-            <br/>
-        </c:forEach>
         
+        <!-- Affichons la liste des voyages -->
+        <c:if test="${voyages!= null}" >
+            
+        
+            <c:forEach var="voyage" items="${voyages}">
+                <li> ${voyage.getNom()} </li>
+                <li> ${voyage.getDtype()} ( ${voyage.getDuree()} jours ) </li>
+                <li> ${voyage.getDescription()} </li>
+                <br/>
+            </c:forEach>
+        </c:if>
         <!-- bouton de retour -->
         <a href="ActionServlet?todo=composerVoyage"> 
             <span style="position: absolute; right: 50px">
