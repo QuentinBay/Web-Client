@@ -3,8 +3,10 @@
     Created on : 14 mai 2015, 20:17:35
     Author     : quentin
 --%>
+<%@page import="routard.Voyage"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List" %>
+<%@page import="routard.Voyage" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,13 +28,15 @@
         <br/>
         <br/>
         <%
-            String dest = (String)request.getAttribute("dest");
-            String type = (String)request.getAttribute("type");
+            List<Voyage> voyages = (List<Voyage>)request.getAttribute("voyages");
+            //String type = (String)request.getAttribute("type");
         %>
-        <p>
-            ${dest}
-            ${type}
-        </p>
+        <c:forEach var="voyage" items="${voyages}">
+            <li> ${voyage.getNom()} </li>
+            <li> ${voyage.getDtype()} ( ${voyage.getDuree()} jours ) </li>
+            <li> ${voyage.getDescription()} </li>
+            <br/>
+        </c:forEach>
         
         <!-- bouton de retour -->
         <a href="ActionServlet?todo=composerVoyage"> 

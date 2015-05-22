@@ -39,7 +39,7 @@
                 <SELECT name="destination" size="1">
                     <OPTION>Toutes les destinations
                     <c:forEach var="pays" items="${listePays}">
-                        <OPTION> ${pays.getNom()}
+                        <OPTION value="${pays.getId()}"> ${pays.getNom()}
                     </c:forEach>
                     
                 </SELECT>
