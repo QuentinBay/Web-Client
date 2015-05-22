@@ -33,8 +33,8 @@ public class CreerClient extends Action {
         
         //Indiquons que le client a ete inscrit
         //Recuperons l'id du client cree
-        //List<Client> listeC = service.listerLesClient();
-        //int idClient = listeC.get(listeC.size()-1).getId();
+        /*List<Client> listeC = service.listerLesClient();
+        int idClient = listeC.get(listeC.size()-1).getId();
         
         String inscription = "Expediteur : ifroutard@monde.com\n"
                            + "Pour : "+email+"\n"
@@ -42,7 +42,7 @@ public class CreerClient extends Action {
                            + "Corps :\n"
                            + "Bonjour "+prenom+"\n"
                            + "Nous vous confirmons votre inscription à l'agence IF'Routard. "
-                           + "Votre numéro de client est : ";//+idClient;
-        request.setAttribute("inscription", inscription);
+                           + "Votre numéro de client est : "+idClient;
+        request.setAttribute("inscription", inscription);*/
     }
 }

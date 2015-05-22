@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import routard.Depart;
 import routard.Pays;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-05-22T14:46:49")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-05-22T15:44:41")
 @StaticMetamodel(Voyage.class)
 public class Voyage_ { 
 

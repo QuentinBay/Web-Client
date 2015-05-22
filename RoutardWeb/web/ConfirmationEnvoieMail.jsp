@@ -15,6 +15,14 @@
         <br/>
         <p>Pensez à vérifier dans votre boîte mail la confirmation de votre inscrition !</p>
         <br/>
-        <a href="/RoutardWeb/CompositionVoyage.jsp"> <input type="button" value="OK" class="sansLabel"/></a>
+        <a href="ActionServlet?todo=composerVoyage"> <input type="button" value="OK" class="sansLabel"/></a>
+        
+        <%
+            String mail = (String)request.getAttribute("inscription");
+            
+        %>
+        <p>
+            ${mail}
+        </p>
     </body>
 </html>

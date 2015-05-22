@@ -3,7 +3,9 @@
     Created on : 14 mai 2015, 19:24:25
     Author     : quentin
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.List" %>
+<%@page import="routard.Pays" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,8 +31,16 @@
                 <br />
                 <span style="margin-left: 100px;">
                 <label for="destination">Destination:</label>
+                
+                <%
+                    List<Pays> listePays = (List<Pays>)request.getAttribute("listePays");
+                %>
+                
                 <SELECT name="destination" size="1">
-                    <OPTION> 
+                    <c:forEach var="pays" items="${listePays}">
+                        <OPTION> ${pays.getNom()}
+                    </c:forEach>
+                    
                 </SELECT>
                 </span>
                 <br />
@@ -48,6 +58,8 @@
                     <input type="submit" value="Consultez nos offres!" class="sansLabel" />
                 </span>
                 <br />
+                
+                
             </fieldset>
         </form>
     </body>

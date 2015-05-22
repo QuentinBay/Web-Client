@@ -6,8 +6,7 @@ package Controleur;
  * and open the template in the editor.
  */
 
-import Actions.Action;
-import Actions.CreerClient;
+import Actions.*;
 import Services.Service;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -59,6 +58,10 @@ public class ActionServlet extends HttpServlet
                 action = new CreerClient();
                 break;
             }
+            case "composerVoyage" :
+            {
+                action = new ComposerVoyage();
+            }
         }
         return action;
     }
@@ -71,6 +74,11 @@ public class ActionServlet extends HttpServlet
             case "inscriptionClient" :
             {
                 vue = "ConfirmationEnvoieMail.jsp";
+                break;
+            }
+            case "composerVoyage" :
+            {
+                vue = "CompositionVoyage.jsp";
                 break;
             }
         }
