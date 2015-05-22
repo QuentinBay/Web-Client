@@ -12,7 +12,7 @@
         <title>InscriptionClient</title>
     </head>
     <body>
-        <form method="post" action="/RoutardWeb/Controleur/ActionServlet?todo=inscriptionClient">
+        <form method="post" action="ActionServlet?todo=inscriptionClient">
             <fieldset>
                 <label for="civilite">civilité: </label>
                 <SELECT name="civilite" size="1">

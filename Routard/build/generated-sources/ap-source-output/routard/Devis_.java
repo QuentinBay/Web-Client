@@ -7,7 +7,7 @@ import routard.Conseiller;
 import routard.Depart;
 import routard.Voyage;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-05-13T09:31:20")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-05-22T14:46:49")
 @StaticMetamodel(Devis.class)
 public class Devis_ { 
 
