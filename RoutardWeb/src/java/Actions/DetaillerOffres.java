@@ -24,6 +24,7 @@ public class DetaillerOffres extends Action {
         List<Voyage> listeVoyage=null;
         List<Depart> listeDeparts=null;
         Voyage voyageChoisi = null;
+        String selection=null;
         
         
         
@@ -35,16 +36,19 @@ public class DetaillerOffres extends Action {
                 //On va selectionner tous les sejours
             {
                 listeVoyage = service.listerLesSejours();
+                selection = "sejour";
             }
             else if (typeVoyage!=null && typeVoyage.equals("circuit"))
                 //On va selectionner tous les circuits
             {
                 listeVoyage = service.listerLesCircuits();
+                selection = "circuit";
             }
             else
                 //Rien n'a ete selectionne : on affiche tout !
             {
                 listeVoyage = service.listerLesVoyage();
+                selection = "tout";
             }
         }
         else
@@ -53,6 +57,7 @@ public class DetaillerOffres extends Action {
             //Recuperons le pays associe au nom de pays
             Pays p = service.findPaysById(Integer.parseInt(destination));
             listeVoyage =service.listerLesVoyagePays(p);
+            selection = destination;
         }
         
         //Recuperons la liste de depart d'un voyage
@@ -72,5 +77,6 @@ public class DetaillerOffres extends Action {
         request.setAttribute("voyages", listeVoyage);
         request.setAttribute("departs", listeDeparts);
         request.setAttribute("voyageId", voyageId);
+        request.setAttribute("selection", selection);
     }
 }

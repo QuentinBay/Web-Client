@@ -33,6 +33,7 @@
             List<Voyage> voyages = (List<Voyage>)request.getAttribute("voyages");
             List<Depart> departs = (List<Depart>)request.getAttribute("departs");
             String voyageId = (String)request.getAttribute("voyageId");
+            String selection = (String)request.getAttribute("selection");
         %>
         
         <!-- Affichons la liste des voyages -->
@@ -41,13 +42,13 @@
             <c:forEach var="voyage" items="${voyages}">
                 <c:if test="${Integer.parseInt(voyageId) == voyage.getId()}" >
                     <!-- On affiche le detail de ce voyage -->
-                    <form method="post" action="ActionServlet?todo=detaillerOffres">
+                    <form method="post" action="ActionServlet?todo=creerDevis">
                         <fieldset>
                             <li> 
                                 <span style="font-weight:bold;">${voyage.getNom()}</span>
                                 - ${voyage.getDtype()} ( ${voyage.getDuree()} jours ) 
                                 <span style="position: absolute; right: 100px">
-                                    <input type="submit" value="-"/>
+                                    <input type="button" value="-"/>
                                 </span>
                             </li>
                             <br/>
@@ -81,6 +82,8 @@
                                 <span style="position: absolute; right: 100px">
                                     <input type="submit" value="+"/>
                                 </span>
+                                <input type="hidden" name="voyage" value="${voyage.getId()}"/>
+                                <input type="hidden" name="destination" value="${selection}"/>
                             </li>
                         </fieldset>
                     </form>
