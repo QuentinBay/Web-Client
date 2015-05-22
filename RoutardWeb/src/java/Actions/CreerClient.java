@@ -18,7 +18,7 @@ public class CreerClient extends Action {
     public void execute(HttpServletRequest request)
     {
         //Recuperons les informations necessaires a la creation du client
-        String civilite = request.getParameter("civilite");
+        /*String civilite = request.getParameter("civilite");
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
         String adresse = request.getParameter("adresse");
@@ -43,6 +43,6 @@ public class CreerClient extends Action {
                            + "Bonjour "+prenom+"\n"
                            + "Nous vous confirmons votre inscription à l'agence IF'Routard. "
                            + "Votre numéro de client est : "+idClient;
-        request.setAttribute("inscription", inscription);
+        request.setAttribute("inscription", inscription);*/
     }
 }

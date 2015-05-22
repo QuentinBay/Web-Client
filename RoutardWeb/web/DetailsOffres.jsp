@@ -21,5 +21,14 @@
         <br/>
         <br/>
         <span style="font-weight:bold;">Voici nos offres :</span>
+        
+        <br/>
+        <br/>
+        <!-- bouton de retour -->
+        <a href="/RoutardWeb/CompositionVoyage.jsp"> 
+            <span style="position: absolute; right: 50px">
+                <input type="button" value="Retour" class="sansLabel"/>
+            </span>
+        </a>
     </body>
 </html>

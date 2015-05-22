@@ -6,6 +6,9 @@ package Controleur;
  * and open the template in the editor.
  */
 
+import Actions.Action;
+import Actions.CreerClient;
+import Services.Service;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,8 +20,63 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author quentin
  */
-public class ActionServlet extends HttpServlet {
+public class ActionServlet extends HttpServlet 
+{
+//---------------------------------------------------------------------ATTRIBUTS
+    Service serviceVoyage;
 
+//----------------------------------------------------------------------METHODES
+    /**
+     * Instancie un service si necessaire
+     * @return service
+     */
+    public Service getServiceMetier()
+    {
+        if (serviceVoyage==null)
+        {
+            serviceVoyage = new Service ();
+        }
+        return serviceVoyage;
+    }
+    
+    /**
+     * En fonction de la requete http, renvoie l'action a effectuer
+     * @param todo
+     * @return 
+     */
+    protected Action getAction(String todo)
+    {
+        Action action = null;
+        switch (todo)
+        {
+            case "identification" :
+            {
+                action = new CreerClient();
+                break;
+            }
+            case "inscriptionClient" :
+            {
+                action = new CreerClient();
+                break;
+            }
+        }
+        return action;
+    }
+    
+    protected String setVue(String todo)
+    {
+        String vue = null;
+        switch(todo)
+        {
+            case "inscriptionClient" :
+            {
+                vue = "ConfirmationEnvoieMail.jsp";
+                break;
+            }
+        }
+        return vue;
+    }
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,10 +89,17 @@ public class ActionServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        response.setContentType("text/html;charset=UTF-8");
+        String tache = request.getParameter("todo");
+        Action action = this.getAction(tache);
+        action.setServiceMetier(this.getServiceMetier());
+        action.execute(request);
+        String vue = this.setVue(tache);
+        request.getRequestDispatcher(vue).forward(request, response);
+        
+        /*response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) 
         {
-            /* TODO output your page here. You may use following sample code. */
+            // TODO output your page here. You may use following sample code. 
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -44,7 +109,7 @@ public class ActionServlet extends HttpServlet {
             out.println("<h1>Servlet ActionServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
+        }*/
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -15,18 +15,18 @@
        
         <form method="post" action="/RoutardWeb/CompositionVoyage.jsp">
             <fieldset>
-
-                <label for="login"><span class="requis">Login : </span></label>
+                <br />
+                <label for="login">Login :</label>
                 <input type="text" id="login" name="login" value="" size="20" maxlength="60" />
                 <br />
-
-                <label for="motdepasse"><span class="requis">Mot de passe : </span></label>
+                <br />
+                <label for="motdepasse">Mot de passe : </label>
                 <input type="password" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20" />
                 <br />
                 <br />
-                
-                <label for="Informations">Informations <span class="requis"></span></label>
-                
+                <br />
+                <label for="Informations">Informations </label>
+                <br />
                 <br />
                 <br />
                 <input type="submit" value="Se connecter" class="sansLabel" />
