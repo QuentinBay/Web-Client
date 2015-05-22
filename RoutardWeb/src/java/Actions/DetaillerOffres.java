@@ -7,6 +7,7 @@ package Actions;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import routard.Depart;
 import routard.Pays;
 import routard.Voyage;
 /**
@@ -19,7 +20,12 @@ public class DetaillerOffres extends Action {
     {
         //Recuperons les informations necessaires a la creation du client
         String destination = request.getParameter("destination");
+        
         List<Voyage> listeVoyage=null;
+        List<Depart> listeDeparts=null;
+        Voyage voyageChoisi = null;
+        
+        
         
         if (destination.equals("Toutes les destinations"))
             //On va trouver les offres en fonction du Type !
@@ -49,6 +55,22 @@ public class DetaillerOffres extends Action {
             listeVoyage =service.listerLesVoyagePays(p);
         }
         
+        //Recuperons la liste de depart d'un voyage
+        String voyageId = request.getParameter("voyage");
+        if (voyageId == null)
+            //On choisit le premier voyage par defaut
+        {
+            voyageChoisi = listeVoyage.get(0);
+            voyageId = voyageChoisi.getId().toString();
+        }
+        else
+        {
+            voyageChoisi = service.findVoyagetById(Integer.parseInt(voyageId));
+        }
+        listeDeparts = service.listerLesDepartsVoyage(voyageChoisi);
+        
         request.setAttribute("voyages", listeVoyage);
+        request.setAttribute("departs", listeDeparts);
+        request.setAttribute("voyageId", voyageId);
     }
 }

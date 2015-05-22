@@ -7,6 +7,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List" %>
 <%@page import="routard.Voyage" %>
+<%@page import="routard.Depart" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,17 +31,61 @@
         <%
             //On recupere les donnees de l'action
             List<Voyage> voyages = (List<Voyage>)request.getAttribute("voyages");
+            List<Depart> departs = (List<Depart>)request.getAttribute("departs");
+            String voyageId = (String)request.getAttribute("voyageId");
         %>
         
         <!-- Affichons la liste des voyages -->
         <c:if test="${voyages!= null}" >
-            
         
             <c:forEach var="voyage" items="${voyages}">
-                <li> ${voyage.getNom()} </li>
-                <li> ${voyage.getDtype()} ( ${voyage.getDuree()} jours ) </li>
-                <li> ${voyage.getDescription()} </li>
-                <br/>
+                <c:if test="${Integer.parseInt(voyageId) == voyage.getId()}" >
+                    <!-- On affiche le detail de ce voyage -->
+                    <form method="post" action="ActionServlet?todo=detaillerOffres">
+                        <fieldset>
+                            <li> 
+                                <span style="font-weight:bold;">${voyage.getNom()}</span>
+                                - ${voyage.getDtype()} ( ${voyage.getDuree()} jours ) 
+                                <span style="position: absolute; right: 100px">
+                                    <input type="submit" value="-"/>
+                                </span>
+                            </li>
+                            <br/>
+                            <li>Infos voyage :</li>
+                            <li> ${voyage.getDescription()} </li>
+                            <br/>
+
+                            <label>Nb. personnes : </label>
+                            <input type="text" id="nbPersonnes" name="nbPersonnes" value="" size="10" maxlength="20" />
+                            <br />
+                            <label>Choisissez le transport :</label>
+                            <br />
+                            <SELECT name="transport" size="1">
+                                <OPTION>Depart-date-tarif-compagnie
+                            </SELECT>
+                            <br />
+                            <br />
+                            <input type="submit" value="Valider"/>
+                        </fieldset>
+                    </form>
+                    <br />
+                    <br />
+                </c:if>
+                <c:if test="${Integer.parseInt(voyageId) != voyage.getId()}" >
+                    <!-- On n'affiche pas le detail de ce voyage -->
+                    <form method="post" action="ActionServlet?todo=detaillerOffres">
+                        <fieldset>
+                            <li> 
+                                <span style="font-weight:bold;">${voyage.getNom()}</span>
+                                - ${voyage.getDtype()} ( ${voyage.getDuree()} jours ) 
+                                <span style="position: absolute; right: 100px">
+                                    <input type="submit" value="+"/>
+                                </span>
+                            </li>
+                        </fieldset>
+                    </form>
+                    <br/>
+                </c:if>
             </c:forEach>
         </c:if>
         <!-- bouton de retour -->
