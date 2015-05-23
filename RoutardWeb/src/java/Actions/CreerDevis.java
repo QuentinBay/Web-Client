@@ -26,19 +26,19 @@ public class CreerDevis extends Action {
         // Variables de session
         HttpSession session = request.getSession(true);
         
-        String clientId = (String) session.getAttribute("clientId");
-        if ( clientId != null && voyageId != null && departId != null )
+        int clientId = (int)session.getAttribute("clientId");
+        if ( voyageId != null && departId != null )
         {
-            Client client = service.findClientById(Integer.parseInt(clientId));
+            Client client = service.findClientById(clientId);
             Voyage voyage = service.findVoyagetById(Integer.parseInt(voyageId));
             Depart depart = service.findDepartById(Integer.parseInt(departId));
             service.creerDevis(Integer.parseInt(nbPersonnes), client, voyage, depart);
             
-            request.setAttribute("confirmation", "Le devis a été envoyé par mail");
+            request.setAttribute("confirmation", "ok");
         }
         else
         {
-            request.setAttribute("confirmation", "Veuillez vous inscrire !");
+            request.setAttribute("confirmation", "ko");
         }
         
     }

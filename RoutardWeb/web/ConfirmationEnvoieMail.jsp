@@ -19,10 +19,7 @@
         
         <%
             String mail = (String)request.getAttribute("inscription");
-            
+            System.out.println(mail);
         %>
-        <span>
-            ${mail}
-        </span>
     </body>
 </html>

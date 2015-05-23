@@ -25,8 +25,7 @@ public class DetaillerOffres extends Action {
         List<Depart> listeDeparts=null;
         Voyage voyageChoisi = null;
         String selection=null;
-        
-        
+
         
         if (destination.equals("Toutes les destinations"))
             //On va trouver les offres en fonction du Type !

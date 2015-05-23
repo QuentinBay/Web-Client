@@ -14,12 +14,15 @@
     <body>
         <br/>
         <%
-            String info = (String)request.getAttribute("confirmation");
-            
+            String confirmation = (String)request.getAttribute("confirmation");
+            //System.out.println(info);
         %>
-        <span>
-            ${info}
-        </span>
+        <c:if test="${confirmation == 'ok'}" >
+            <p>Le devis a été envoyé par mail.</p>
+        </c:if>
+        <c:if test="${confirmation == 'ko'}" >
+            <p>Veuillez vous inscrire avant de pouvoir faire un devis !</p>
+        </c:if>
         <br/>
         <a href="ActionServlet?todo=detaillerOffres"> <input type="button" value="OK" class="sansLabel"/></a>
     </body>

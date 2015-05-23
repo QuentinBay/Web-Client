@@ -17,6 +17,7 @@
         
         <form method="post" action="ActionServlet?todo=detaillerOffres">
             <fieldset>
+                <!--<input type="hidden" name="todo" value="detaillerOffres"/>-->
                 <!-- bouton de deconnexion -->
                 <a href="/RoutardWeb/index.jsp"> 
                     <span style="position: absolute; right: 50px">
