@@ -63,6 +63,10 @@
                             <br />
                             <SELECT name="transport" size="1">
                                 <OPTION>Depart-date-tarif-compagnie
+                                    <c:forEach var="depart" items="${departs}">
+                                        <OPTION value="${depart.getId()}">${depart.getVille()} 
+                                            ${depart.getJour()} ${depart.getPrix()}€ ${depart.getTransport()}
+                                    </c:forEach>
                             </SELECT>
                             <br />
                             <br />
@@ -83,7 +87,20 @@
                                     <input type="submit" value="+"/>
                                 </span>
                                 <input type="hidden" name="voyage" value="${voyage.getId()}"/>
-                                <input type="hidden" name="destination" value="${selection}"/>
+                                <c:if test="${selection == 'tout'}" >
+                                    <input type="hidden" name="destination" value="Toutes les destinations"/>
+                                </c:if>
+                                <c:if test="${selection == 'sejour'}" >
+                                    <input type="hidden" name="destination" value="Toutes les destinations"/>
+                                    <input type="hidden" name="typeVoyage" value="sejour"/>
+                                </c:if>
+                                <c:if test="${selection == 'circuit'}" >
+                                    <input type="hidden" name="destination" value="Toutes les destinations"/>
+                                    <input type="hidden" name="typeVoyage" value="circuit"/>
+                                </c:if>
+                                <c:if test="${selection != 'tout' && selection != 'sejour' && selection != 'circuit'}" >
+                                    <input type="hidden" name="destination" value="${selection}"/>
+                                </c:if>
                             </li>
                         </fieldset>
                     </form>
