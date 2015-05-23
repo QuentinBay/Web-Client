@@ -15,7 +15,9 @@
         <br/>
         <p>Pensez à vérifier dans votre boîte mail la confirmation de votre inscrition !</p>
         <br/>
-        <a href="ActionServlet?todo=composerVoyage"> <input type="button" value="OK" class="sansLabel"/></a>
+        <a href="ActionServlet?todo=composerVoyage">
+            <input type="button" value="OK"/>
+        </a>
         
         <%
             String mail = (String)request.getAttribute("inscription");

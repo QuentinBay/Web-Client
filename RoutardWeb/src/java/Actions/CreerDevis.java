@@ -5,10 +5,12 @@
  */
 package Actions;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import routard.Client;
 import routard.Depart;
+import routard.Devis;
 import routard.Voyage;
 
 /**
@@ -34,6 +36,12 @@ public class CreerDevis extends Action {
             Depart depart = service.findDepartById(Integer.parseInt(departId));
             service.creerDevis(Integer.parseInt(nbPersonnes), client, voyage, depart);
             
+            //Recuperons le devis cree
+            List<Devis> listeDevis = service.listerLesDevis(client);
+            int idDevis = listeDevis.get(listeDevis.size()-1).getId();
+            Devis devis = service.findDevistById(idDevis);
+            
+            service.afficherDevis(devis, client);
             request.setAttribute("confirmation", "ok");
         }
         else

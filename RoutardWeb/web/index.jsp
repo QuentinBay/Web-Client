@@ -13,7 +13,7 @@
     </head>
     <body>
        
-        <form method="post" action="ActionServlet?todo=composerVoyage">
+        <form method="post" action="/RoutardWeb/InscriptionClient.jsp">
             <fieldset>
                 <br />
                 <label for="login">Login :</label>
@@ -25,12 +25,15 @@
                 <br />
                 <br />
                 <br />
-                <label for="Informations">Informations </label>
+                <label>Informations : Bouton "Se connecter" inutilisable car 
+                    on ne fait pas de service pour s'identifer.</label>
                 <br />
                 <br />
+                <label>Vous devez forcément vous inscrire pour la futur création des devis!</label>
                 <br />
-                <input type="submit" value="Se connecter" class="sansLabel" />
-                <a href="/RoutardWeb/InscriptionClient.jsp"> <input type="button" value="S'incrire" class="sansLabel"/></a>
+                <br />
+                <input type="button" value="Se connecter"/>
+                <input type="submit" value="S'incrire"/>
                 <br />
             </fieldset>
         </form>
