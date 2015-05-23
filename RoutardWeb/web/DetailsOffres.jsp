@@ -62,14 +62,15 @@
                             <label>Choisissez le transport :</label>
                             <br />
                             <SELECT name="transport" size="1">
-                                <OPTION>Depart-date-tarif-compagnie
+                                <OPTION>Depart - Date - Tarif - Compagnie
                                     <c:forEach var="depart" items="${departs}">
-                                        <OPTION value="${depart.getId()}">${depart.getVille()} 
-                                            ${depart.getJour()} ${depart.getPrix()}€ ${depart.getTransport()}
+                                        <OPTION value="${depart.getId()}">${depart.getVille()} - 
+                                            ${depart.getJour()} - ${depart.getPrix()}€ - ${depart.getTransport()}
                                     </c:forEach>
                             </SELECT>
                             <br />
                             <br />
+                            <input type="hidden" name="voyage" value="${voyage.getId()}"/>
                             <input type="submit" value="Valider"/>
                         </fieldset>
                     </form>

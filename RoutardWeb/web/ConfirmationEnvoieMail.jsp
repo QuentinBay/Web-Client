@@ -3,7 +3,7 @@
     Created on : 13 mai 2015, 10:52:17
     Author     : quentin
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,8 +21,8 @@
             String mail = (String)request.getAttribute("inscription");
             
         %>
-        <p>
+        <span>
             ${mail}
-        </p>
+        </span>
     </body>
 </html>

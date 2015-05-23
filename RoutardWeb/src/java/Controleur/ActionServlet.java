@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -69,6 +70,11 @@ public class ActionServlet extends HttpServlet
                 action = new DetaillerOffres();
                 break;
             }
+            case "creerDevis" :
+            {
+                action = new CreerDevis();
+                break;
+            }
         }
         return action;
     }
@@ -93,6 +99,11 @@ public class ActionServlet extends HttpServlet
                 vue = "DetailsOffres.jsp";
                 break;
             }
+            case "creerDevis" :
+            {
+                vue = "EnvoieMailDevis.jsp";
+                break;
+            }
         }
         return vue;
     }
@@ -109,27 +120,15 @@ public class ActionServlet extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
+        // Variables de session
+        //HttpSession session = request.getSession(true);
+        
         String tache = request.getParameter("todo");
         Action action = this.getAction(tache);
         action.setServiceMetier(this.getServiceMetier());
         action.execute(request);
         String vue = this.setVue(tache);
         request.getRequestDispatcher(vue).forward(request, response);
-        
-        /*response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) 
-        {
-            // TODO output your page here. You may use following sample code. 
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ActionServlet test</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ActionServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }*/
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
