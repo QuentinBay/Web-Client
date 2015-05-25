@@ -60,11 +60,6 @@ public class ActionServlet extends HttpServlet
                 action = new CreerClient();
                 break;
             }
-            case "composerVoyage" :
-            {
-                action = new ComposerVoyage();
-                break;
-            }
             case "detaillerOffres" :
             {
                 action = new DetaillerOffres();
@@ -85,11 +80,6 @@ public class ActionServlet extends HttpServlet
         switch(todo)
         {
             case "inscriptionClient" :
-            {
-                vue = "CompositionVoyage.jsp";
-                break;
-            }
-            case "composerVoyage" :
             {
                 vue = "CompositionVoyage.jsp";
                 break;
