@@ -89,11 +89,6 @@ public class ActionServlet extends HttpServlet
                 vue = "DetailsOffres.jsp";
                 break;
             }
-            case "creerDevis" :
-            {
-                vue = "EnvoieMailDevis.jsp";
-                break;
-            }
         }
         return vue;
     }
@@ -118,7 +113,10 @@ public class ActionServlet extends HttpServlet
         action.setServiceMetier(this.getServiceMetier());
         action.execute(request);
         String vue = this.setVue(tache);
-        request.getRequestDispatcher(vue).forward(request, response);
+        if(vue != null)
+        {
+            request.getRequestDispatcher(vue).forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -13,8 +13,8 @@
         <script type="text/javascript">
             function open_infos()
             {
-                width = 400;
-                height = 200;
+                width = 300;
+                height = 150;
                 if(window.innerWidth)
                 {
                     var left = (window.innerWidth-width)/2;

@@ -13,12 +13,17 @@
     </head>
     <body>
         <div>
-            <p>Pensez à vérifier dans votre boîte mail la confirmation de votre inscrition !</p>
+            <p style="text-align:center">
+                Pensez à vérifier dans votre boîte mail la confirmation de votre inscrition !
+            </p>
         </div>
-        <FORM>
-            <INPUT TYPE="BUTTON" VALUE="OK" ONCLICK="window.close()">
-        </FORM>
-        
+        <div>
+            <span style="position: absolute; left: 120px"> 
+                <FORM>
+                    <INPUT TYPE="BUTTON" VALUE="OK" ONCLICK="window.close()">
+                </FORM>
+            </span>
+        </div>
         <%
             String mail = (String)request.getAttribute("inscription");
             System.out.println(mail);
