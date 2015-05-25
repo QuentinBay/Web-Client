@@ -27,7 +27,7 @@
                 <br />
                 <br />
                 <label>Informations : Bouton "Se connecter" inutilisable car 
-                    on ne fait pas de service pour s'identifer.</label>
+                    nous n'avons pas de service pour s'identifer.</label>
                 <br />
                 <br />
                 <label>Vous devez forcément vous inscrire pour la futur création des devis!</label>

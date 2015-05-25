@@ -90,7 +90,22 @@
                             </SELECT>
                             <br />
                             <br />
+                            <!-- Gardons les informations de composition de voyage pour afficher de nouveau la page -->
                             <input type="hidden" name="voyage" value="${voyage.getId()}"/>
+                            <c:if test="${selection == 'tout'}" >
+                                <input type="hidden" name="destination" value="Toutes les destinations"/>
+                            </c:if>
+                            <c:if test="${selection == 'sejour'}" >
+                                <input type="hidden" name="destination" value="Toutes les destinations"/>
+                                <input type="hidden" name="typeVoyage" value="sejour"/>
+                            </c:if>
+                            <c:if test="${selection == 'circuit'}" >
+                                <input type="hidden" name="destination" value="Toutes les destinations"/>
+                                <input type="hidden" name="typeVoyage" value="circuit"/>
+                            </c:if>
+                            <c:if test="${selection != 'tout' && selection != 'sejour' && selection != 'circuit'}" >
+                                <input type="hidden" name="destination" value="${selection}"/>
+                            </c:if>
                             <a href="#null" onclick="javascript:open_infos();">
                                 <input type="submit" value="Valider"/>
                             </a>
@@ -109,6 +124,7 @@
                                 <span style="position: absolute; right: 100px">
                                     <input type="submit" value="+"/>
                                 </span>
+                                <!-- Gardons les informations de composition de voyage pour afficher de nouveau la page -->
                                 <input type="hidden" name="voyage" value="${voyage.getId()}"/>
                                 <c:if test="${selection == 'tout'}" >
                                     <input type="hidden" name="destination" value="Toutes les destinations"/>

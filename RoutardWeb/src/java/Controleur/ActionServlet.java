@@ -60,6 +60,11 @@ public class ActionServlet extends HttpServlet
                 action = new CreerClient();
                 break;
             }
+            case "composerVoyage" :
+            {
+                action = new ComposerVoyage();
+                break;
+            }
             case "detaillerOffres" :
             {
                 action = new DetaillerOffres();
@@ -84,7 +89,17 @@ public class ActionServlet extends HttpServlet
                 vue = "CompositionVoyage.jsp";
                 break;
             }
+            case "composerVoyage" :
+            {
+                vue = "CompositionVoyage.jsp";
+                break;
+            }
             case "detaillerOffres" :
+            {
+                vue = "DetailsOffres.jsp";
+                break;
+            }
+            case "creerDevis" :
             {
                 vue = "DetailsOffres.jsp";
                 break;
@@ -113,10 +128,7 @@ public class ActionServlet extends HttpServlet
         action.setServiceMetier(this.getServiceMetier());
         action.execute(request);
         String vue = this.setVue(tache);
-        if(vue != null)
-        {
-            request.getRequestDispatcher(vue).forward(request, response);
-        }
+        request.getRequestDispatcher(vue).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import routard.Client;
 import routard.Depart;
 import routard.Devis;
+import routard.Pays;
 import routard.Voyage;
 
 /**
@@ -42,12 +43,58 @@ public class CreerDevis extends Action {
             Devis devis = service.findDevistById(idDevis);
             
             service.afficherDevis(devis, client);
-            request.setAttribute("confirmation", "ok");
+        }
+        
+        //Reaffichons la page de details des offres
+        String destination = request.getParameter("destination");
+        
+        List<Voyage> listeVoyage=null;
+        List<Depart> listeDeparts=null;
+        Voyage voyageChoisi = null;
+        String selection=null;
+
+        
+        if (destination.equals("Toutes les destinations"))
+            //On va trouver les offres en fonction du Type !
+        {
+            String typeVoyage = request.getParameter("typeVoyage");
+            if (typeVoyage!=null && typeVoyage.equals("sejour"))
+                //On va selectionner tous les sejours
+            {
+                listeVoyage = service.listerLesSejours();
+                selection = "sejour";
+            }
+            else if (typeVoyage!=null && typeVoyage.equals("circuit"))
+                //On va selectionner tous les circuits
+            {
+                listeVoyage = service.listerLesCircuits();
+                selection = "circuit";
+            }
+            else
+                //Rien n'a ete selectionne : on affiche tout !
+            {
+                listeVoyage = service.listerLesVoyage();
+                selection = "tout";
+            }
         }
         else
+            //On va trouver les offres en fonction du pays
         {
-            request.setAttribute("confirmation", "ko");
+            //Recuperons le pays associe au nom de pays
+            Pays p = service.findPaysById(Integer.parseInt(destination));
+            listeVoyage =service.listerLesVoyagePays(p);
+            selection = destination;
         }
+        
+        
+        voyageChoisi = service.findVoyagetById(Integer.parseInt(voyageId));
+        listeDeparts = service.listerLesDepartsVoyage(voyageChoisi);
+        
+        request.setAttribute("voyages", listeVoyage);
+        request.setAttribute("departs", listeDeparts);
+        request.setAttribute("voyageId", voyageId);
+        request.setAttribute("selection", selection);
+    
         
     }
     
