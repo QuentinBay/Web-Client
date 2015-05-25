@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import routard.Client;
+import routard.Pays;
 
 
 /**
@@ -52,5 +53,9 @@ public class CreerClient extends Action {
                            + "Nous vous confirmons votre inscription à l'agence IF'Routard. "
                            + "Votre numéro de client est : "+idClient;
         request.setAttribute("inscription", inscription);
+        
+        //Affichons la liste des pays dans la fenetre de composition des voyages
+        List<Pays> listePays = service.listerLesPays();
+        request.setAttribute("listePays",listePays);
     }
 }

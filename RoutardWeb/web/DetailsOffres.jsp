@@ -14,6 +14,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>DetailsOffres</title>
+        <script type="text/javascript">
+            function open_infos()
+            {
+                width = 400;
+                height = 200;
+                if(window.innerWidth)
+                {
+                    var left = (window.innerWidth-width)/2;
+                    var top = (window.innerHeight-height)/2;
+                }
+                else
+                {
+                    var left = (document.body.clientWidth-width)/2;
+                    var top = (document.body.clientHeight-height)/2;
+                }
+                window.open('/RoutardWeb/ConfirmationEnvoieMail.jsp','nom_de_ma_popup',
+                            'menubar=no, scrollbars=no, top='+top+', left='+left+', \n\
+                            width='+width+', height='+height+'');
+            }  
+        </script>
     </head>
     <body>
         <!-- bouton de deconnexion -->

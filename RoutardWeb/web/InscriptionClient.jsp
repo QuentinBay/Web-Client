@@ -10,6 +10,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>InscriptionClient</title>
+        <script type="text/javascript">
+            function open_infos()
+            {
+                width = 400;
+                height = 200;
+                if(window.innerWidth)
+                {
+                    var left = (window.innerWidth-width)/2;
+                    var top = (window.innerHeight-height)/2;
+                }
+                else
+                {
+                    var left = (document.body.clientWidth-width)/2;
+                    var top = (document.body.clientHeight-height)/2;
+                }
+                window.open('/RoutardWeb/ConfirmationEnvoieMail.jsp','ConfirmationInscription',
+                            'menubar=no, scrollbars=no, top='+top+', left='+left+', \n\
+                            width='+width+', height='+height+'');
+            }  
+        </script>
     </head>
     <body>
         <form method="post" action="ActionServlet?todo=inscriptionClient">
@@ -69,8 +89,11 @@
                 <input type="checkbox" name="acceptation" value="yes"/>J'accepte les termes et conditions d'utilisation
                 
                 <br/>
-                <br/>                
-                <input type="submit" value="OK" />
+                <br/>
+                <a href="#null" onclick="javascript:open_infos();">
+                    <input type="submit" value="OK" />
+                </a>
+                
                 <br />
             </fieldset>
         </form>

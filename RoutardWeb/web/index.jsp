@@ -10,9 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Identification</title>
+        
     </head>
     <body>
-       
+        
         <form method="post" action="/RoutardWeb/InscriptionClient.jsp">
             <fieldset>
                 <br />

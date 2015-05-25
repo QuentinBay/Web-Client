@@ -86,7 +86,7 @@ public class ActionServlet extends HttpServlet
         {
             case "inscriptionClient" :
             {
-                vue = "ConfirmationEnvoieMail.jsp";
+                vue = "CompositionVoyage.jsp";
                 break;
             }
             case "composerVoyage" :

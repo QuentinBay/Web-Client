@@ -12,12 +12,12 @@
         <title>Confirmation Envoie Mail</title>
     </head>
     <body>
-        <br/>
-        <p>Pensez à vérifier dans votre boîte mail la confirmation de votre inscrition !</p>
-        <br/>
-        <a href="ActionServlet?todo=composerVoyage">
-            <input type="button" value="OK"/>
-        </a>
+        <div>
+            <p>Pensez à vérifier dans votre boîte mail la confirmation de votre inscrition !</p>
+        </div>
+        <FORM>
+            <INPUT TYPE="BUTTON" VALUE="OK" ONCLICK="window.close()">
+        </FORM>
         
         <%
             String mail = (String)request.getAttribute("inscription");
