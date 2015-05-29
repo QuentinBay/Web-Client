@@ -37,9 +37,9 @@
     </head>
     <body>
         <!-- bouton de deconnexion -->
-        <a href="/RoutardWeb/index.jsp"> 
+        <a href="ActionServlet?todo=deconnecter"> 
             <span style="position: absolute; right: 50px">
-                <input type="button" value="Deconnexion" class="sansLabel"/>
+                <input type="button" value="Deconnexion" />
             </span>
         </a>
         <br/>
@@ -54,6 +54,7 @@
             List<Depart> departs = (List<Depart>)request.getAttribute("departs");
             String voyageId = (String)request.getAttribute("voyageId");
             String selection = (String)request.getAttribute("selection");
+            
         %>
         
         <!-- Affichons la liste des voyages -->

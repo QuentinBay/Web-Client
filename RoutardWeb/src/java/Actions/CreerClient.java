@@ -57,5 +57,6 @@ public class CreerClient extends Action {
         //Affichons la liste des pays dans la fenetre de composition des voyages
         List<Pays> listePays = service.listerLesPays();
         request.setAttribute("listePays",listePays);
+        request.setAttribute("signin","ok");
     }
 }

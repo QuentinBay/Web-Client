@@ -75,6 +75,11 @@ public class ActionServlet extends HttpServlet
                 action = new CreerDevis();
                 break;
             }
+            case "deconnecter" :
+            {
+                action = new Deconnexion();
+                break;
+            }
         }
         return action;
     }
@@ -104,6 +109,11 @@ public class ActionServlet extends HttpServlet
                 vue = "DetailsOffres.jsp";
                 break;
             }
+            case "deconnecter" :
+            {
+                vue = "index.jsp";
+                break;
+            }
         }
         return vue;
     }
@@ -127,7 +137,24 @@ public class ActionServlet extends HttpServlet
         Action action = this.getAction(tache);
         action.setServiceMetier(this.getServiceMetier());
         action.execute(request);
-        String vue = this.setVue(tache);
+        String vue=null;
+        
+        HttpSession session = request.getSession(true);
+        String signin = null;
+        if ( session != null )
+        {
+            signin = (String)session.getAttribute("signin");
+        }
+        
+        if (tache.equals("creerDevis") && signin !=null && signin.equals("ko"))
+        {
+            vue = "PopupDeconnexion.jsp";
+        }
+        else
+        {
+            vue = this.setVue(tache);
+        }
+        
         request.getRequestDispatcher(vue).forward(request, response);
     }
 

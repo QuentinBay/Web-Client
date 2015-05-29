@@ -29,21 +29,34 @@ public class CreerDevis extends Action {
         // Variables de session
         HttpSession session = request.getSession(true);
         
-        int clientId = (int)session.getAttribute("clientId");
-        if ( voyageId != null && departId != null )
+        if ( session != null )
         {
-            Client client = service.findClientById(clientId);
-            Voyage voyage = service.findVoyagetById(Integer.parseInt(voyageId));
-            Depart depart = service.findDepartById(Integer.parseInt(departId));
-            service.creerDevis(Integer.parseInt(nbPersonnes), client, voyage, depart);
-            
-            //Recuperons le devis cree
-            List<Devis> listeDevis = service.listerLesDevis(client);
-            int idDevis = listeDevis.get(listeDevis.size()-1).getId();
-            Devis devis = service.findDevistById(idDevis);
-            
-            service.afficherDevis(devis, client);
+            int clientId = (int)session.getAttribute("clientId");
+            if ( clientId!=0 && voyageId != null && departId != null )
+            {
+                Client client = service.findClientById(clientId);
+                Voyage voyage = service.findVoyagetById(Integer.parseInt(voyageId));
+                Depart depart = service.findDepartById(Integer.parseInt(departId));
+                service.creerDevis(Integer.parseInt(nbPersonnes), client, voyage, depart);
+
+                //Recuperons le devis cree
+                List<Devis> listeDevis = service.listerLesDevis(client);
+                int idDevis = listeDevis.get(listeDevis.size()-1).getId();
+                Devis devis = service.findDevistById(idDevis);
+
+                service.afficherDevis(devis, client);
+                session.setAttribute("signin", "ok");
+            }
+            else
+                //La personne doit s'inscrire avant !
+            {
+                session.setAttribute("signin", "ko");
+                System.out.println("------------------------------------------------------------------------------------");
+                System.out.println("Votre devis n'a pas pu être créé, veuillez réessayer.");
+                System.out.println("------------------------------------------------------------------------------------");
+            }
         }
+        
         
         //Reaffichons la page de details des offres
         String destination = request.getParameter("destination");
@@ -94,7 +107,7 @@ public class CreerDevis extends Action {
         request.setAttribute("departs", listeDeparts);
         request.setAttribute("voyageId", voyageId);
         request.setAttribute("selection", selection);
-    
+        
         
     }
     

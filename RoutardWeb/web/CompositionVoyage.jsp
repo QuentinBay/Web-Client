@@ -19,7 +19,7 @@
             <fieldset>
                 <!--<input type="hidden" name="todo" value="detaillerOffres"/>-->
                 <!-- bouton de deconnexion -->
-                <a href="/RoutardWeb/index.jsp"> 
+                <a href="ActionServlet?todo=deconnecter"> 
                     <span style="position: absolute; right: 50px">
                         <input type="button" value="Deconnexion" class="sansLabel"/>
                     </span>

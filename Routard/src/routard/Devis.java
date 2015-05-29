@@ -104,7 +104,6 @@ public class Devis implements Serializable{
         System.out.println("Date :" + date);
         System.out.println(c.getPrenom()+ " " + c.getNom());
         System.out.println(c.getAdressePhysique());
-        System.out.println(c.getNoTel());
         System.out.println("");
         System.out.println("Votre conseiller pour ce voyage : " + conseillerDuDevis.getPrenom()+ " " + conseillerDuDevis.getNom() +" (" + conseillerDuDevis.getEmail()+ " )");
         System.out.println("");
